@@ -6,9 +6,6 @@ public class Main {
         System.out.println("Hola cómo están");
         System.out.println("Hola de nuevo");
         System.out.println("Hola cuarta línea");
-        System.out.println("ola pero no ola mar ola de saludo");
-
-
-        System.out.println("Hola");
+        System.out.println("Quinta línea");
     }
 }
