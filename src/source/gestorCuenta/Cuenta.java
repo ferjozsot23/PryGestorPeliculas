@@ -8,7 +8,8 @@ public class Cuenta {
     private String correo;
 
     //private Pelicula pelicula;
-    //xd
+
+    //p
     public Cuenta() {
     }
 
