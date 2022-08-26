@@ -57,5 +57,26 @@ public class GestorCuenta{
             }
         }
     }
+    /*
+    public boolean validarCorreo(String correo){ // Aún en proceso, servirá en el futuro
+        int auxiliar = buscarCuenta(correo);
+        return (auxiliar>=0)?true:false;
+    }
+     */
+
+    public boolean confirmarPasswordAndCorreo(String correo, String passwordInserted){
+        int auxiliar = buscarCuenta(correo);
+         if (auxiliar >= 0){
+            if (listaCuenta.get(auxiliar).getPassword().equals(passwordInserted)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void iniciarSesion(String correo, String password){
+        confirmarPasswordAndCorreo(correo,password);
+        JOptionPane.showMessageDialog(null, "Bienvenido", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+    }
 
 }
