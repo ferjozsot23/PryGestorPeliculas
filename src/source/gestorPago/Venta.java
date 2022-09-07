@@ -6,7 +6,7 @@ import source.Pelicula;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Ventas {
+public class Venta {
     //private String Referencia;
     private double valorTotal; //Valor total de la venta
     private int id; // id de la venta
@@ -16,7 +16,7 @@ public class Ventas {
     private ArrayList<Pelicula> peliculasVendidas = new ArrayList<>(); //almacenamiento de películas que se venden
 
     //private ArrayList<>
-    private Ventas(int id, double valorTotal, Cliente c, String lugar) {
+    private Venta(int id, double valorTotal, Cliente c, String lugar) {
         this.id = id;
         this.fecha = new java.util.Date(); //obtención de la fecha actual
         this.clienteVenta = c;
