@@ -19,19 +19,22 @@ public  class Recibo {
 //        //Consultar a la base de datos el ultimo numero de factura registrado/
 //        this.numeroFactura=1;
 //
-//        this.fecha =LocalDateTime.now();
+        this.fecha =LocalDateTime.now();
 //        this.contenido=contenido;
 //
-//        this.monto=calcularSubTotal();
+        this.monto=calcularSubTotal();
     }
     public Recibo(int dias, int peliculas){
+        //        //Consultar a la base de datos el ultimo numero de factura registrado/
+//        this.numeroFactura=1;
+        this.fecha =LocalDateTime.now();
         this.multa= (float) (Math.round((dias*peliculas*0.75)*100.0)/100.0);
     }
     //debe recibir un cliente
     //generarDetalle(Cliente cliente)
 
     public void generarDetalles(Cliente cliente, float efectivo){//efectivo: dinero fisico entregado por el comprador
-        detalles="";
+        detalles="              ALQUILER               \n";
         detalles+="Fecha: Quito, "+fecha+"\n";
         for(String dato: cliente.getDatosCliente()){
             detalles+=dato+"\n";
@@ -39,7 +42,7 @@ public  class Recibo {
         detalles+="_____________\n";
         detalles+="Producto                       Precio\n";
 
-//        for(Cop pelicula: contenido){
+//        for(Copia pelicula: contenido){
 //            //del titulo de la pelicula se observan solo 20 caracteres
 //            if(pelicula.titulo.length()>=30){
 //                detalles += pelicula.titulo.substring(0,29)+"   "+pelicula.precio+"\n";
@@ -56,6 +59,22 @@ public  class Recibo {
             }
         }
         */
+        detalles+="_____________\n";
+        detalles+="Sub Total: "+monto+"\n";
+        detalles+="12% IVA: "+calcularImpuestos()+"\n";
+        detalles+="Total USD: "+calcularTotal()+"\n";
+        detalles+="Valor Efectivo: "+efectivo+"\n";
+        detalles+="Valor Cambio: "+calcularVuelto(efectivo)+"\n";
+    }
+    public void generarDetallesMulta(Cliente cliente, float efectivo){//efectivo: dinero fisico entregado por el comprador
+        detalles="                MULTA                \n";
+        detalles+="Fecha: Quito, "+fecha+"\n";
+        for(String dato: cliente.getDatosCliente()){
+            detalles+=dato+"\n";
+        }
+        detalles+="_____________\n";
+        detalles+="Descripcion                    Costo \n";
+        detalles+="Multa                         \n"+this.multa;
         detalles+="_____________\n";
         detalles+="Sub Total: "+monto+"\n";
         detalles+="12% IVA: "+calcularImpuestos()+"\n";
