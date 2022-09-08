@@ -1,15 +1,15 @@
-//package source.gestorPago;
+package source.gestorPago;
 //
-//import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 //
 //import java.util.List;
 //
-//public  class Factura {
+public  class Factura {
 //
-//    int numeroFactura;
-//    LocalDateTime fecha;
-//    float monto;
-//    String detalles;
+    int numeroFactura;
+    LocalDateTime fecha;
+    float monto;
+    String detalles;
     //se añade el contenido de la factura
     //puede ser una lista de peliculas o directamente un objeto "carroCompra"
     //List<Pelicula> contenido;
@@ -82,4 +82,4 @@
 //
 //    }
 //
-//}
+}
