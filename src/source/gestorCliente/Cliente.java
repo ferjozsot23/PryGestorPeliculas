@@ -1,27 +1,16 @@
 package source.gestorCliente;
 
-public class Cuenta {
+public class Cliente {
     private String nombre;
     private String apellido;
-    //private String username;
-   // private String password;
     private String telefono;
     private String direccion;
     private String identificacion;
-/*
-  String nombre;
-    String apellido;
-    String direccion;
-    String telefono;
-    String identifiacion;
- */
-    //private Pelicula pelicula;
 
-    //p
-    public Cuenta() {
+    public Cliente() {
     }
 
-    public Cuenta(String nombre, String apellido, String telefono, String direccion, String identificacion) {
+    public Cliente(String nombre, String apellido, String telefono, String direccion, String identificacion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -71,7 +60,7 @@ public class Cuenta {
 
     @Override
     public String toString() {
-        return "Cuenta{" +
+        return "Cliente{" +
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", telefono='" + telefono + '\'' +
