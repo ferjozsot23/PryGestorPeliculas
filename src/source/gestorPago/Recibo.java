@@ -114,4 +114,9 @@ public  class Recibo {
 //
 //    }
 //
+    // getter para detalle
+    public String getDetalles(){
+        return this.detalles;
+    }
+
 }

@@ -5,8 +5,6 @@ import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.time.LocalDate;
-import java.time.Month;
 import java.time.temporal.ChronoUnit;
 
 public class Renta {
@@ -15,7 +13,6 @@ public class Renta {
     private boolean vigencia;
     private Date fechaInicio;
     private Date fechaFin;
-    private Date fechaEntrega;
     private long diasExcedidos;
     private final int diasMaximos = 7;
     SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
@@ -72,14 +69,16 @@ public class Renta {
         return calendar.getTime();
     }
 
-    // función para emision de factura por la renta de las películas
+    // función para agregar la factura por la renta de las películas
     public void emitirFactura(){
         this.factura = new Recibo(this.copiasRentadas);
+
     }
 
-    // función para emitir multas en caso de haber retraso en la fecha de entrega
+    // función para agregar la multa en caso de haber retraso en la fecha de entrega
     public void emitirMulta(){
         this.multa = new Recibo((int)this.diasExcedidos,this.copiasRentadas.size());
+
     }
 
 }
