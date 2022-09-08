@@ -1,39 +1,60 @@
 package source.gestorPago;
 
 
-public class Venta {
-	private String Referencia;
-	private int valorUnidad, cantidad;
-	
-	
-	Venta (String referencia, int valorUnidad, int cantidad){
-		setReferencia(referencia);
-		setValorUnidad(valorUnidad);
-		setCantidad(cantidad);	
-	}
+import source.Pelicula;
 
-	public String getReferencia() {
-		return Referencia;
-	}
-	public void setReferencia(String n) {
-		Referencia = n;
-	}
-	public int getValorUnidad() {
-		return valorUnidad;
-	}
-	public void setValorUnidad(int cr) {
-		this.valorUnidad = cr;
-	}
-	public int getCantidad() {
-		return cantidad;
-	}
-	public void setCantidad(int e) {
-		this.cantidad = e;
-	}
-	public void mostrarVenta() {
-		System.out.println("\nReferencia: "+ getReferencia()+ "\nValorUnidad:"+getValorUnidad()+"\nCantidad: "+ getCantidad()+ 
-				"\nTotal a pagar por dicha articulo" + getValorUnidad()*getCantidad());
-	}
-	
-		
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Venta {
+    //private String Referencia;
+    private double valorTotal; //Valor total de la venta
+    private int id; // id de la venta
+    private Date fecha;  //Fecha de la venta
+    private String lugar;
+    Cliente clienteVenta; // Cliente asociado a la venta
+    private ArrayList<Pelicula> peliculasVendidas = new ArrayList<>(); //almacenamiento de películas que se venden
+
+    //private ArrayList<>
+    private Venta(int id, double valorTotal, Cliente c, String lugar) {
+        this.id = id;
+        this.fecha = new java.util.Date(); //obtención de la fecha actual
+        this.clienteVenta = c;
+        this.lugar = lugar;
+    }
+    public int getId(){
+        return this.id;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public Date getFecha(){
+        return this.fecha;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void agregarPelicula(Pelicula pelicula){
+        peliculasVendidas.add(pelicula);
+    }
+
+    public void removerPelicula(Pelicula pelicula){
+        peliculasVendidas.remove(pelicula);
+    }
+
+    public double calcularValorTotal(){
+        double total = 0;
+        for (Pelicula p: peliculasVendidas ) {
+            //total += p.getPrecio();  //sumatoria de los precios de las películas
+        }
+        return total;
+    }
+
+    public void setValorTotal() {
+        this.valorTotal = calcularValorTotal();
+    }
 }
